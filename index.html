@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bhuvaneswari KP — AI Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0d0f14;
+    --paper: #f8f6f1;
+    --accent: #1a4fff;
+    --accent2: #00c2a8;
+    --muted: #6b7080;
+    --border: #e2ddd6;
+    --card: #ffffff;
+    --tag-bg: #eef2ff;
+    --tag-text: #1a4fff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,246,241,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.875rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* SECTIONS */
+  section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+  section + section { padding-top: 0; }
+
+  /* HERO */
+  #hero {
+    padding-top: 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 90vh;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; color: var(--accent2);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 800; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-bio {
+    font-size: 1.05rem; color: #3d4152;
+    max-width: 480px; margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 26px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; cursor: pointer;
+    transition: all 0.2s; border: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #0035d4; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-visual {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 48px rgba(26,79,255,0.07);
+  }
+  .hero-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .hero-stat {
+    background: var(--paper);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem; font-weight: 800;
+    color: var(--accent);
+  }
+  .hero-stat .label {
+    font-size: 0.78rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+  .hero-journey {
+    margin-top: 24px;
+    display: flex; align-items: center;
+    justify-content: space-around;
+    background: var(--ink);
+    border-radius: 12px; padding: 16px 20px;
+    gap: 4px;
+  }
+  .journey-step { text-align: center; }
+  .journey-step .jt { font-size: 0.7rem; color: #aab; }
+  .journey-step .jv { font-family: 'JetBrains Mono', monospace; color: #fff; font-size: 0.75rem; font-weight: 500; }
+  .journey-arrow { color: var(--accent2); font-size: 1.1rem; }
+
+  /* SECTION TITLES */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--accent2);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800; margin-bottom: 16px; line-height: 1.2;
+  }
+  .section-intro {
+    color: var(--muted); font-size: 1rem;
+    max-width: 580px; margin-bottom: 56px;
+  }
+
+  /* STORY */
+  #story .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    align-items: start;
+  }
+  .story-text p { color: #3d4152; margin-bottom: 20px; line-height: 1.9; }
+  .story-text p strong { color: var(--ink); }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: flex; gap: 20px;
+    position: relative; padding-bottom: 32px;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-left { display: flex; flex-direction: column; align-items: center; }
+  .tl-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%; background: var(--accent);
+    flex-shrink: 0; margin-top: 5px;
+  }
+  .tl-line {
+    width: 1px; flex: 1;
+    background: var(--border); margin-top: 4px;
+  }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-content .tl-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--muted); margin-bottom: 4px;
+  }
+  .tl-content .tl-role {
+    font-weight: 600; font-size: 0.95rem; color: var(--ink);
+  }
+  .tl-content .tl-desc {
+    font-size: 0.85rem; color: var(--muted); margin-top: 4px;
+  }
+
+  /* CASE STUDIES */
+  #cases { padding-top: 100px; }
+  .case-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.25s;
+    position: relative; overflow: hidden;
+  }
+  .case-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .case-card:nth-child(2)::before { background: var(--accent2); }
+  .case-card:nth-child(3)::before { background: #8b5cf6; }
+  .case-card:nth-child(4)::before { background: #f59e0b; }
+  .case-card:nth-child(5)::before { background: #ef4444; }
+  .case-card:hover { box-shadow: 0 12px 60px rgba(0,0,0,0.09); }
+  .case-header { margin-bottom: 32px; }
+  .case-company {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .case-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem; font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--tag-bg); color: var(--tag-text);
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 500;
+  }
+  .case-body { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .case-section h4 {
+    font-size: 0.75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .case-section p, .case-section li { font-size: 0.92rem; color: #3d4152; line-height: 1.75; }
+  .case-section ul { padding-left: 18px; }
+  .case-section li { margin-bottom: 6px; }
+  .metrics-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .metric-pill {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 20px;
+    text-align: center;
+  }
+  .metric-pill .m-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem; font-weight: 800; color: var(--accent);
+    display: block;
+  }
+  .metric-pill .m-lbl { font-size: 0.72rem; color: var(--muted); }
+  .case-decision {
+    margin-top: 24px;
+    background: #f0f4ff;
+    border-radius: 10px; padding: 16px 20px;
+    font-size: 0.88rem; color: #2d3a6b;
+    border-left: 3px solid var(--accent);
+  }
+  .case-decision strong { display: block; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); }
+
+  /* SKILLS */
+  #skills { padding-top: 100px; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .skill-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-icon { font-size: 1.6rem; margin-bottom: 14px; }
+  .skill-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 1rem; margin-bottom: 12px;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    background: var(--paper); border: 1px solid var(--border);
+    color: var(--ink); padding: 3px 10px;
+    border-radius: 6px; font-size: 0.72rem;
+  }
+
+  /* THINKING / PHILOSOPHY */
+  #thinking { padding-top: 100px; }
+  .thinking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .think-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px;
+  }
+  .think-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--accent2); margin-bottom: 12px;
+  }
+  .think-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;
+  }
+  .think-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+
+  /* CERTIFICATIONS */
+  #certs { padding-top: 80px; }
+  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cert-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+    text-align: center;
+  }
+  .cert-icon { font-size: 1.4rem; margin-bottom: 10px; }
+  .cert-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+  .cert-org { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+  /* CONTACT */
+  #contact {
+    padding-top: 100px; padding-bottom: 120px;
+    text-align: center;
+  }
+  #contact h2 { margin-bottom: 16px; }
+  #contact p { color: var(--muted); max-width: 480px; margin: 0 auto 40px; }
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 100px;
+    border: 1.5px solid var(--border);
+    color: var(--ink); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem; color: var(--muted);
+  }
+
+  /* SCROLL FADE */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 80px 20px; }
+    #hero { grid-template-columns: 1fr; padding-top: 100px; min-height: auto; gap: 40px; }
+    .hero-visual { order: -1; }
+    #story .story-grid { grid-template-columns: 1fr; }
+    .case-body { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .thinking-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">BKP</a>
+  <ul class="nav-links">
+    <li><a href="#story">My Journey</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#thinking">Thinking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn btn-primary" href="mailto:kpbhuvi@gmail.com" style="padding:8px 20px;font-size:0.82rem;">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="fade-in">
+    <div class="hero-eyebrow">AI Product Manager · Philadelphia, PA</div>
+    <h1>I build AI products that <em>actually work</em> for real people.</h1>
+    <p class="hero-bio">
+      Nine years in. Started writing Swift and Flutter. Learned that the hardest problems aren't in the code — they're in deciding what to build and why. Now I lead AI product strategy across fintech, insurance, energy, and logistics. I speak engineer, data scientist, and stakeholder all at once — and that's not a small thing.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#cases">See my work</a>
+      <a class="btn btn-outline" href="#story">My story</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-in">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="num">9+</div>
+        <div class="label">Years of experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="label">AI products shipped</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">40%</div>
+        <div class="label">Max drop-off reduced</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">35%</div>
+        <div class="label">Call deflection at Comerica</div>
+      </div>
+    </div>
+    <div class="hero-journey">
+      <div class="journey-step">
+        <div class="jt">Started as</div>
+        <div class="jv">iOS Dev</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-step">
+        <div class="jt">Grew into</div>
+        <div class="jv">Flutter Dev</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-step">
+        <div class="jt">Became</div>
+        <div class="jv">Product Owner</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-step">
+        <div class="jt">Now</div>
+        <div class="jv">AI PM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="section-label">My Journey</div>
+  <h2>Coder turned product person. That gap is my edge.</h2>
+  <div class="section-intro">I didn't fall into product. I chose it — because I kept seeing good engineers build the wrong things confidently.</div>
+  <div class="story-grid">
+    <div class="story-text fade-in">
+      <p>I started my career as an iOS developer, doing the thing most engineers do: building features from specs. But somewhere around year three, I noticed a pattern. The features we shipped often didn't move the needle — not because the code was wrong, but because the problem definition was wrong. The spec was wrong. The assumptions were wrong.</p>
+      <p>I started asking questions that made product managers uncomfortable: <strong>"Why are we building this? What does success look like? What does the user actually need?"</strong> Eventually, I became the person who answered those questions.</p>
+      <p>My move from senior mobile developer to product owner wasn't a career pivot. It was a natural extension. I already understood system constraints, latency tradeoffs, API design, and what "done" really means. What I added on top was user empathy, business context, and roadmap thinking.</p>
+      <p>When AI became real — not hype, but actually deployable — I leaned in hard. Because I know what it takes to ship production software. That means I can sit with an ML engineer and debate whether fine-tuning or RAG is the right call for this use case, this data volume, this cost constraint. I don't need a translator. <strong>That's what makes me useful.</strong></p>
+    </div>
+    <div class="timeline fade-in">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">Early Career</div>
+          <div class="tl-role">iOS Developer → Flutter Engineer</div>
+          <div class="tl-desc">Built native iOS apps in Swift; expanded to cross-platform with Flutter. Shipped products for fintech, media, retail, and humanitarian sectors.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">Mid Career</div>
+          <div class="tl-role">Senior Consultant & Mobile Architect</div>
+          <div class="tl-desc">Led mobile architecture decisions at Michaels, Jack in the Box, and IOM. Began owning scope, timelines, and stakeholder communication alongside code.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">Transition</div>
+          <div class="tl-role">AI & Mobile Product Owner</div>
+          <div class="tl-desc">Moved fully into product ownership at Cintas and Comerica — defining roadmaps, writing PRDs, running discovery, and leading cross-functional teams.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">Now</div>
+          <div class="tl-role">Lead AI Product Manager</div>
+          <div class="tl-desc">At Charles Schwab, New York Life, and Xcel Energy — leading ML model integration, LLM deployment, and AI roadmap strategy at enterprise scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-label">Case Studies</div>
+  <h2>Five AI products. Real problems. Measurable results.</h2>
+  <div class="section-intro">Each project below is a story about a problem that couldn't be solved with a simple feature. Every one of them taught me something that changed how I approach the next one.</div>
+
+  <!-- CASE 1: CHARLES SCHWAB -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Charles Schwab · Lead Consultant, AI/Mobile Product Owner</div>
+      <div class="case-title">Turning Compliance Guesswork into Real-Time Risk Intelligence</div>
+      <div class="case-tags">
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Intelligent Document Processing</span>
+        <span class="tag">ML Model Integration</span>
+        <span class="tag">Fintech</span>
+        <span class="tag">Human-in-the-Loop</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>The Problem</h4>
+          <p>Brokerage transaction compliance at scale is genuinely hard. Analysts were manually reviewing flagged transactions from a queue that never emptied — a system designed for a world where trade volume was ten times smaller. Every manual review was a delay, and delays in compliance mean regulatory exposure. The error rate on "Not-In-Good-Order" (NIGO) filings was quietly eating operational budget and creating audit risk.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>My Approach</h4>
+          <ul>
+            <li>Shadowed compliance analysts for two weeks to map the actual decision tree in their heads — not what the playbook said, but what they actually did.</li>
+            <li>Identified that 70%+ of reviews followed a predictable pattern that a model could handle. The remaining 30% were genuinely ambiguous and needed human judgment.</li>
+            <li>Designed a Human-in-the-Loop (HITL) architecture: ML handles the clear cases, flags the ambiguous ones with confidence scores, and routes them to the right analyst tier.</li>
+            <li>Worked with ML engineers to select and tune anomaly detection models on historical transaction logs. Wrote the evaluation criteria — precision/recall thresholds — based on the business cost of false positives vs. false negatives.</li>
+          </ul>
+        </div>
+        <div class="case-decision">
+          <strong>Key Technical Decision</strong>
+          Rather than chasing a fully automated system (which compliance leadership wouldn't trust anyway), I pushed for augmentation-first: show analysts the model's risk score and the evidence behind it, not just a flag. That decision increased analyst adoption from a skeptical 40% to over 85% within three months.
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>Outcome</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">25%</span><span class="m-lbl">fraud detection accuracy ↑</span></div>
+            <div class="metric-pill"><span class="m-val">85%</span><span class="m-lbl">analyst adoption rate</span></div>
+            <div class="metric-pill"><span class="m-val">~60%</span><span class="m-lbl">reduction in manual review queue</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What I Learned</h4>
+          <p>In regulated industries, trust is the product. You can have a 95% accurate model, but if compliance teams don't trust it, you have nothing. I spent as much time on change management and explainability design as I did on model requirements. The technical work was table stakes. The human work was where the project actually succeeded or failed.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What's Next</h4>
+          <p>The roadmap now extends toward real-time predictive threat detection — moving from reactive flagging to proactive monitoring that surfaces risk before a trade settles. I'm also scoping automated remediation for the clearest NIGO patterns to further reduce analyst load.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2: NYL -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">New York Life Insurance · AI Mobile Product Owner</div>
+      <div class="case-title">Eliminating the Drop-Off Wall: AI-Powered Document Capture for Policy Applications</div>
+      <div class="case-tags">
+        <span class="tag">OCR</span>
+        <span class="tag">Document Classification</span>
+        <span class="tag">Mobile-First AI</span>
+        <span class="tag">Insurance</span>
+        <span class="tag">Real-Time Extraction</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>The Problem</h4>
+          <p>Insurance applications were bleeding users at the document submission step. Customers would photograph and upload documents, then wait — sometimes days — only to be told the image was unclear or the wrong document type. By that point, they'd moved on. The abandonment rate at this step was alarming, and it was entirely self-inflicted friction: a manual review process that could have been automated.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>My Approach</h4>
+          <ul>
+            <li>Ran abandonment funnel analysis segmented by document type. Found that ambiguous document categories (e.g., utility bills vs. bank statements) accounted for disproportionate rejection rates.</li>
+            <li>Designed a real-time feedback loop: the moment a user captures a document, the system evaluates image quality, identifies the document type, and extracts key fields — all before submission.</li>
+            <li>Worked with the ML team on OCR model selection, ultimately choosing a combination of a commercial OCR engine for structured documents and a custom classification model for document type detection.</li>
+            <li>Built the product so that users see extraction results in real-time — "We found your address: 123 Main St. Correct?" — which also serves as an implicit data quality check.</li>
+          </ul>
+        </div>
+        <div class="case-decision">
+          <strong>Key Tradeoff</strong>
+          Accuracy vs. speed on a mobile device. We could run inference server-side for better accuracy, but the latency killed the UX. I pushed for a hybrid: lightweight on-device quality check (blur, crop, lighting) runs instantly; full OCR extraction runs server-side but asynchronously so the user doesn't wait. This approach cut perceived wait time by over 60%.
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>Outcome</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">40%</span><span class="m-lbl">application abandonment ↓</span></div>
+            <div class="metric-pill"><span class="m-val">30%</span><span class="m-lbl">faster time-to-bind</span></div>
+            <div class="metric-pill"><span class="m-val">&lt;3s</span><span class="m-lbl">avg. extraction latency</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What I Learned</h4>
+          <p>My mobile engineering background paid off here in a way I didn't expect. I understood exactly why on-device inference was both valuable and limiting — not as an abstract concept, but from having optimized Flutter rendering pipelines and dealt with device-tier performance variability. Being able to speak to that constraint directly with engineers saved weeks of back-and-forth.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What's Next</h4>
+          <p>Extending the model to predictive policy renewal — using behavioral and claims data to surface personalized renewal prompts before customers start shopping alternatives.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3: XCEL -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Xcel Energy · AI Product Manager</div>
+      <div class="case-title">From Raw Meter Data to Actionable Energy Intelligence</div>
+      <div class="case-tags">
+        <span class="tag">Time-Series Forecasting</span>
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Energy Tech</span>
+        <span class="tag">Mobile Dashboard</span>
+        <span class="tag">Predictive Analytics</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>The Problem</h4>
+          <p>Commercial energy clients had access to mountains of smart meter data and no ability to act on it. The existing reporting tools showed consumption history but couldn't answer the questions facilities managers actually had: "Are we heading for a high-demand day next week? Should I pre-cool the building tonight to avoid peak pricing?" They were flying blind on a dataset that should have been telling them exactly what to do.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>My Approach</h4>
+          <ul>
+            <li>Ran interviews with 12 facilities managers. The core insight: they didn't want more data visualizations. They wanted fewer, better alerts and clear recommended actions.</li>
+            <li>Scoped the AI solution around two core capabilities: demand forecasting (7-day horizon) and anomaly detection (unusual consumption patterns relative to historical baseline).</li>
+            <li>Integrated hourly smart meter data with historical operational records and weather API feeds — the weather correlation was the key variable most competitors were missing.</li>
+            <li>Designed the mobile dashboard around the concept of "one number that matters today" — a daily energy risk score — with drill-down available but never forced on the user.</li>
+          </ul>
+        </div>
+        <div class="case-decision">
+          <strong>Model Decision</strong>
+          Chose time-series forecasting (LSTM-based) over a simpler regression approach. The tradeoff was higher model complexity and compute cost, but the energy pricing spikes we were predicting were non-linear and seasonal — a pattern that simpler models missed in backtesting. I made the case for this to stakeholders using a clear cost/benefit: every 1% improvement in peak demand prediction accuracy translated to ~$X in avoided demand charges for clients.
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>Outcome</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">20%</span><span class="m-lbl">app engagement ↑</span></div>
+            <div class="metric-pill"><span class="m-val">↓</span><span class="m-lbl">peak-load anomaly duration</span></div>
+            <div class="metric-pill"><span class="m-val">7-day</span><span class="m-lbl">forecasting horizon</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What I Learned</h4>
+          <p>AI products in enterprise B2B contexts live or die on workflow integration. Our best features went unused when they required users to check a separate dashboard. The engagement lift came when we pushed the right alert to the right person at the right time — inside the workflow they already had, not asking them to build a new habit.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What's Next</h4>
+          <p>Automating demand-response triggers — when the model detects an imminent peak stress event, the system automatically initiates pre-approved load-reduction protocols, with the facilities manager receiving a notification rather than a request for action.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4: CINTAS -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Cintas Corporation · AI Product Owner</div>
+      <div class="case-title">Predictive Logistics: Cutting Field Operations Costs with ML Routing</div>
+      <div class="case-tags">
+        <span class="tag">Predictive Routing</span>
+        <span class="tag">Inventory ML</span>
+        <span class="tag">Offline-First Mobile</span>
+        <span class="tag">Operations Tech</span>
+        <span class="tag">Flutter</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>The Problem</h4>
+          <p>Field service operations at Cintas were running on yesterday's data. Route assignments were made the night before based on static schedules; inventory reorders were triggered by stock-out rather than prediction. Drivers were covering inefficient routes, and supply depots were constantly over- or under-stocked. The real cost wasn't visible on any one report — it was buried across fuel, overtime, and emergency restocking charges.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>My Approach</h4>
+          <ul>
+            <li>Spent three days riding along with field service reps to understand their actual workflow — not the documented process, the real one.</li>
+            <li>Identified that route optimization alone wasn't enough; inventory sync timing was the critical dependency. You can't give someone an optimized route if the truck isn't stocked correctly.</li>
+            <li>Designed an offline-first mobile app (Flutter) with AI-driven recommendations that worked without connectivity — critical in Cintas's operational environments — and synced intelligently when connectivity resumed.</li>
+            <li>ML models processed GPS telemetry, historical route performance, inventory usage patterns, and customer service windows to generate daily routing recommendations with confidence scores.</li>
+          </ul>
+        </div>
+        <div class="case-decision">
+          <strong>Why Offline-First Mattered</strong>
+          This is where my mobile development background became directly decisive. Most product managers in this space would have spec'd a connected app and been surprised by the field failures. I knew from building mobile apps that connectivity in operational environments is unreliable at best. I made offline-first a P0 requirement before a single ML model was discussed — and the field team's trust in the product was directly tied to its reliability in dead zones.
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>Outcome</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">15%</span><span class="m-lbl">fuel/logistics cost ↓</span></div>
+            <div class="metric-pill"><span class="m-val">↑</span><span class="m-lbl">inventory turnover rate</span></div>
+            <div class="metric-pill"><span class="m-val">P0</span><span class="m-lbl">offline reliability delivered</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What I Learned</h4>
+          <p>The best AI recommendation means nothing if the person in the field doesn't trust the app enough to follow it. Reliability earned trust. Trust drove adoption. Adoption made the cost savings real. The sequence mattered — and I've applied that lesson to every AI product since: earn trust first, optimize second.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What's Next</h4>
+          <p>Computer vision integration for automated physical asset tracking — using camera feeds from service locations to detect uniform inventory levels and flag reorder needs without manual scanning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 5: COMERICA -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Comerica Bank · AI Product Owner</div>
+      <div class="case-title">NLP-Powered Banking Assistant: Resolving Queries Before They Become Calls</div>
+      <div class="case-tags">
+        <span class="tag">NLP</span>
+        <span class="tag">Conversational AI</span>
+        <span class="tag">LLM Integration</span>
+        <span class="tag">Banking</span>
+        <span class="tag">RAG</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>The Problem</h4>
+          <p>The Comerica contact center was absorbing thousands of calls per week for questions that had clear, definitive answers: What's my current balance? Why was this fee charged? When will this transfer clear? Each call cost real money and kept the line busy for complex inquiries that actually needed a human. The frustrating part: customers calling for simple answers had often already opened the mobile app — they just couldn't find what they needed fast enough.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>My Approach</h4>
+          <ul>
+            <li>Analyzed 6 months of call transcripts — categorized by intent, resolution time, and first-call resolution rate. Found that 4 intent categories accounted for 58% of total call volume.</li>
+            <li>Built the product case around those 4 intents first. Resisted scope creep pressure to build a "comprehensive virtual assistant" — chose to do a few things well rather than everything poorly.</li>
+            <li>Implemented RAG architecture: the assistant retrieves relevant account data and policy documentation before generating a response, dramatically reducing hallucination risk on account-specific queries.</li>
+            <li>Designed guardrails for financial context: the assistant defers any ambiguous query to a human agent rather than generating a plausible but potentially wrong answer. In banking, a confident wrong answer is worse than an honest "let me connect you."</li>
+          </ul>
+        </div>
+        <div class="case-decision">
+          <strong>RAG vs. Fine-Tuning Decision</strong>
+          The team initially pushed for fine-tuning a model on Comerica's internal documentation. I pushed back. Our policy docs update frequently, and fine-tuning cycles couldn't keep pace. RAG with a fresh knowledge base gave us current information on every query at the cost of higher per-query latency — a latency that was entirely acceptable for a chat interface. Fine-tuning would have been the wrong tool for this problem.
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>Outcome</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">35%</span><span class="m-lbl">call deflection rate</span></div>
+            <div class="metric-pill"><span class="m-val">↑</span><span class="m-lbl">CSAT scores</span></div>
+            <div class="metric-pill"><span class="m-val">4</span><span class="m-lbl">core intents at launch</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What I Learned</h4>
+          <p>Scope discipline in AI products is genuinely hard because the technology makes everything feel possible. The pressure to add "just one more intent" before launch was constant. Shipping four intents that worked reliably was the right call — and it gave us a track record of reliability to expand from, rather than a reputation for inconsistency to recover from.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>What's Next</h4>
+          <p>Expanding to proactive financial wellness recommendations — using transaction patterns to surface relevant insights before the customer has to ask. Moving from reactive resolution to anticipatory guidance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills & Expertise</div>
+  <h2>What I actually bring to the table.</h2>
+  <div class="section-intro">Nine years of compounding, not nine years of the same year repeated.</div>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-title">AI/ML Product Strategy</div>
+      <div class="skill-tags">
+        <span class="skill-tag">LLM Integration</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">Fine-tuning</span>
+        <span class="skill-tag">Model Lifecycle</span>
+        <span class="skill-tag">Generative AI</span>
+        <span class="skill-tag">AI Agents</span>
+        <span class="skill-tag">IDP</span>
+        <span class="skill-tag">Anomaly Detection</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-title">Technical Depth</div>
+      <div class="skill-tags">
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">Embeddings</span>
+        <span class="skill-tag">Vector DBs</span>
+        <span class="skill-tag">Semantic Search</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Inference</span>
+        <span class="skill-tag">Guardrails</span>
+        <span class="skill-tag">Chunking</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📱</div>
+      <div class="skill-title">Mobile Engineering Foundation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Flutter</span>
+        <span class="skill-tag">Swift / iOS</span>
+        <span class="skill-tag">REST / GraphQL</span>
+        <span class="skill-tag">CI/CD</span>
+        <span class="skill-tag">Offline-First</span>
+        <span class="skill-tag">Mobile Architecture</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📊</div>
+      <div class="skill-title">Product Strategy & Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">OKRs / KPIs</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">RICE Prioritization</span>
+        <span class="skill-tag">MoSCoW</span>
+        <span class="skill-tag">MVP Scoping</span>
+        <span class="skill-tag">Roadmapping</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-title">Cross-Functional Leadership</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ML Engineers</span>
+        <span class="skill-tag">Data Scientists</span>
+        <span class="skill-tag">UX/UI</span>
+        <span class="skill-tag">QA</span>
+        <span class="skill-tag">Stakeholder Mgmt</span>
+        <span class="skill-tag">Change Management</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📋</div>
+      <div class="skill-title">Performance & Evaluation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Precision / Recall</span>
+        <span class="skill-tag">Latency Optimization</span>
+        <span class="skill-tag">Hallucination Mitigation</span>
+        <span class="skill-tag">Model Evaluation</span>
+        <span class="skill-tag">Human-in-the-Loop</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THINKING -->
+<section id="thinking">
+  <div class="section-label">How I Think</div>
+  <h2>Principles I've built (and rebuilt) through shipping.</h2>
+  <div class="section-intro">These aren't frameworks from a PM course. They're lessons that came from being wrong in expensive ways.</div>
+  <div class="thinking-grid">
+    <div class="think-card fade-in">
+      <div class="think-num">01</div>
+      <h3>Trust is the product, especially in AI.</h3>
+      <p>A 95% accurate model that users don't trust delivers less value than an 80% accurate model they rely on. I spend as much time designing for explainability and error recovery as I do on feature capabilities. If users can't tell why the model made a decision, they'll reject the whole system after the first mistake.</p>
+    </div>
+    <div class="think-card fade-in">
+      <div class="think-num">02</div>
+      <h3>RAG vs. fine-tuning is a product decision, not a technical one.</h3>
+      <p>The right architecture depends on how frequently your knowledge base changes, your latency tolerance, and your cost envelope — not on which technique is newer. I've learned to ask these questions before any model discussion starts, because the answers often make the decision obvious.</p>
+    </div>
+    <div class="think-card fade-in">
+      <div class="think-num">03</div>
+      <h3>Ship fewer things that actually work.</h3>
+      <p>Every AI product I've been on has faced scope pressure. The instinct is to build broad. The right instinct is to build deep on a small surface area, earn trust, then expand. The Comerica chatbot launched with four intents. That discipline is what made the 35% call deflection possible — a wider scope would have diluted reliability and user trust.</p>
+    </div>
+    <div class="think-card fade-in">
+      <div class="think-num">04</div>
+      <h3>Your job is to make the right call in the fog.</h3>
+      <p>In AI product work, you rarely have enough data to be certain. You have enough to make a reasoned bet. I've learned to be explicit about my confidence level, the assumptions I'm making, and what would change my mind — and to document that so the team understands the reasoning, not just the decision.</p>
+    </div>
+    <div class="think-card fade-in">
+      <div class="think-num">05</div>
+      <h3>Mobile engineering made me a better PM.</h3>
+      <p>When you've debugged a memory leak on a 4-year-old Android device, you understand constraints in a visceral way. I know what "latency" means to a user on a slow connection. I know what offline-first really takes to build. That understanding means I write specs that engineers can actually execute — and I catch failure modes before they become production incidents.</p>
+    </div>
+    <div class="think-card fade-in">
+      <div class="think-num">06</div>
+      <h3>The user doesn't care about the model. They care about the outcome.</h3>
+      <p>I've sat in too many product reviews where we celebrated ML accuracy metrics while ignoring user satisfaction data. Precision and recall are internal quality signals. What the user experiences — speed, confidence, reliability — is the actual product. I keep those two layers distinct and connected at the same time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" style="padding-top:80px;">
+  <div class="section-label">Education & Credentials</div>
+  <h2>Formal foundations.</h2>
+  <div class="cert-grid fade-in">
+    <div class="cert-card"><div class="cert-icon">🎓</div><div class="cert-name">Bachelor of Computer Science</div><div class="cert-org">Foundation</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Certified Scrum Product Owner</div><div class="cert-org">CSPO</div></div>
+    <div class="cert-card"><div class="cert-icon">🤖</div><div class="cert-name">Google AI Essentials</div><div class="cert-org">Google</div></div>
+    <div class="cert-card"><div class="cert-icon">📦</div><div class="cert-name">IBM Product Management</div><div class="cert-org">IBM</div></div>
+    <div class="cert-card"><div class="cert-icon">🏗️</div><div class="cert-name">Power Platform Architect</div><div class="cert-org">Microsoft PL-600</div></div>
+    <div class="cert-card"><div class="cert-icon">⚡</div><div class="cert-name">Power Automate RPA Developer</div><div class="cert-org">Microsoft PL-500</div></div>
+    <div class="cert-card"><div class="cert-icon">🔧</div><div class="cert-name">Power Platform Functional Consultant</div><div class="cert-org">Microsoft PL-200</div></div>
+    <div class="cert-card"><div class="cert-icon">🚀</div><div class="cert-name">Mendix Rapid Developer</div><div class="cert-org">Mendix</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Talk</div>
+  <h2>Open to the right AI product role.</h2>
+  <p>I'm looking for teams working on hard problems — where the AI actually needs to work, not just impress on a demo. If that's you, let's have a real conversation.</p>
+  <div class="contact-links">
+    <a class="contact-pill" href="mailto:kpbhuvi@gmail.com">✉ kpbhuvi@gmail.com</a>
+    <a class="contact-pill" href="tel:+15023414877">📞 +1 (502) 341-4877</a>
+    <a class="contact-pill" href="https://linkedin.com/in/bhuvaneswarikp" target="_blank">🔗 LinkedIn</a>
+    <a class="contact-pill" href="#">📄 Download Resume</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Bhuvaneswari Kuduva Premkumar · AI Product Manager · Philadelphia, PA
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
