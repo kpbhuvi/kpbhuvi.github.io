@@ -259,6 +259,28 @@
   }
   .case-decision strong { display: block; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); }
 
+  /* AI LAB */
+  #ai-lab { padding-top: 100px; }
+  .lab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .lab-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .lab-card:hover { border-color: var(--accent); box-shadow: 0 12px 40px rgba(26,79,255,0.08); }
+  .lab-icon { font-size: 1.6rem; margin-bottom: 14px; }
+  .lab-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 1.05rem; margin-bottom: 12px;
+  }
+  .lab-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+  .lab-link {
+    font-size: 0.85rem; font-weight: 600; color: var(--accent);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .lab-link:hover { color: #0035d4; }
+
   /* SKILLS */
   #skills { padding-top: 100px; }
   .skills-grid {
@@ -349,6 +371,7 @@
     #story .story-grid { grid-template-columns: 1fr; }
     .case-body { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
+    .lab-grid { grid-template-columns: 1fr; }
     .thinking-grid { grid-template-columns: 1fr; }
     .cert-grid { grid-template-columns: 1fr 1fr; }
   }
@@ -361,6 +384,7 @@
   <ul class="nav-links">
     <li><a href="#story">My Journey</a></li>
     <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#ai-lab">AI Lab</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#thinking">Thinking</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -746,6 +770,33 @@
           <p>Expanding to proactive financial wellness recommendations — using transaction patterns to surface relevant insights before the customer has to ask. Moving from reactive resolution to anticipatory guidance.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI LAB -->
+<section id="ai-lab">
+  <div class="section-label">AI Product Lab</div>
+  <h2>Three working AI tools I built to show, not just tell.</h2>
+  <div class="section-intro">The three artifacts an AI PM produces most: requirements, backlog, and grounded answers over internal knowledge. Live, working apps — not mockups.</div>
+  <div class="lab-grid">
+    <div class="lab-card fade-in">
+      <div class="lab-icon">📝</div>
+      <div class="lab-title">PRD Generator</div>
+      <div class="lab-desc">Turns a feature idea and research notes into a full PRD, then critiques and scores its own draft like a skeptical Head of Product.</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/PRD_Generator" target="_blank">Open PRD Generator →</a>
+    </div>
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🎫</div>
+      <div class="lab-title">Jira Story Generator</div>
+      <div class="lab-desc">Breaks a feature into INVEST-compliant user stories with acceptance criteria, story points, and priority — exports as a Jira-ready CSV.</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/Jira_Story_Generator" target="_blank">Open Story Generator →</a>
+    </div>
+    <div class="lab-card fade-in">
+      <div class="lab-icon">📚</div>
+      <div class="lab-title">RAG Knowledge Assistant</div>
+      <div class="lab-desc">Upload documents and ask questions. Answers are grounded strictly in the docs, with citations back to the source chunk (TF-IDF retrieval).</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/RAG_Knowledge_Assistant" target="_blank">Open RAG Assistant →</a>
     </div>
   </div>
 </section>
