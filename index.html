@@ -209,6 +209,9 @@
   .case-card:nth-child(3)::before { background: #8b5cf6; }
   .case-card:nth-child(4)::before { background: #f59e0b; }
   .case-card:nth-child(5)::before { background: #ef4444; }
+  .case-card:nth-child(6)::before { background: #14b8a6; }
+  .case-card:nth-child(7)::before { background: #d946ef; }
+  .case-card:nth-child(8)::before { background: #f97316; }
   .case-card:hover { box-shadow: 0 12px 60px rgba(0,0,0,0.09); }
   .case-header { margin-bottom: 32px; }
   .case-company {
@@ -412,7 +415,7 @@
         <div class="label">Years of experience</div>
       </div>
       <div class="hero-stat">
-        <div class="num">5</div>
+        <div class="num">8</div>
         <div class="label">AI products shipped</div>
       </div>
       <div class="hero-stat">
@@ -500,8 +503,8 @@
 <!-- CASE STUDIES -->
 <section id="cases">
   <div class="section-label">Case Studies</div>
-  <h2>Five AI products. Real problems. Measurable results.</h2>
-  <div class="section-intro">Each project below is a story about a problem that couldn't be solved with a simple feature. Every one of them taught me something that changed how I approach the next one.</div>
+  <h2>Eight AI products. Real problems. Measurable results.</h2>
+  <div class="section-intro">Five come from enterprise client work. Three are self-directed products I designed and built end-to-end — from problem statement to a working, deployed app — to prove I can take an AI idea the full distance without a team behind me.</div>
 
   <!-- CASE 1: CHARLES SCHWAB -->
   <div class="case-card fade-in">
@@ -772,13 +775,211 @@
       </div>
     </div>
   </div>
+
+  <!-- CASE 6: MOBILE APP REVIEW ANALYZER (SELF-DIRECTED) -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Personal AI Product · Self-Directed Build</div>
+      <div class="case-title">Mobile App Review Analyzer — Turning a Review Firehose Into a Weekly Signal</div>
+      <div class="case-tags">
+        <span class="tag">Sentiment Analysis</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Mobile PM Tooling</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>1. Problem Statement</h4>
+          <p>Mobile product teams get hundreds to thousands of app-store reviews a week and no realistic way to read them all. Regressions hide in the noise — a bad release can tank ratings for days before anyone notices the pattern, because "read every review" doesn't scale past a few dozen a day.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>2. User Persona</h4>
+          <p><strong>Priya, Senior Mobile PM at a mid-size fintech.</strong> Owns a release every two weeks across iOS and Android. After each release she needs to know, within a day, whether something broke — not after support tickets pile up.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>3. Market Research</h4>
+          <p>Competitors: AppFollow, Appbot, Sensor Tower, Thematic. All are capable but built for enterprise ASO/CX teams — priced and configured for that buyer, not a single PM who wants a fast, disposable triage view after a release. That gap is the opportunity: a lightweight, self-serve tool with zero setup cost.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>4. PRD — Key Requirements</h4>
+          <ul>
+            <li>Ingest reviews (CSV: text, rating, version, date) or a live demo dataset</li>
+            <li>Classify sentiment and surface it as a trend by app version</li>
+            <li>Auto-tag common complaint themes (crashes, performance, billing, support, UX)</li>
+            <li>Flag the specific negative reviews worth reading this week</li>
+            <li>Runs with no paid API key and no setup — must work the moment it opens</li>
+          </ul>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>5. MVP Scope (V1)</h4>
+          <p><strong>In scope:</strong> lexicon-based sentiment scoring, keyword-driven theme tagging, sentiment-by-version trend chart, top negative reviews table, CSV export.<br/><strong>Out of scope (V2):</strong> live app-store scraping, multi-language support, transformer/LLM-based theme classification.</p>
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>6. Success Metrics (KPIs)</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">&lt;5min</span><span class="m-lbl">time-to-insight vs. hours manually</span></div>
+            <div class="metric-pill"><span class="m-val">80%+</span><span class="m-lbl">theme-tagging agreement target</span></div>
+            <div class="metric-pill"><span class="m-val">weekly</span><span class="m-lbl">target usage cadence</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>7. AI Architecture</h4>
+          <p><strong>Prompt:</strong> none in V1 — a keyword taxonomy dictionary drives theme tagging. <strong>Model:</strong> VADER-style lexicon sentiment scoring, chosen over a transformer model for zero cost, instant latency, and full explainability. <strong>Evaluation:</strong> precision/recall against a hand-labeled 200-review sample; V2 path is a fine-tuned or zero-shot LLM classifier benchmarked against this V1 baseline.</p>
+        </div>
+        <div class="case-decision">
+          <strong>8. Demo — Live Application</strong>
+          <a class="btn btn-primary" href="https://bhuvi-ai-lab.streamlit.app/Mobile_App_Review_Analyzer" target="_blank" style="margin-top:8px;">▶ Try the live demo</a>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>9. Lessons Learned</h4>
+          <p>Explainability beat marginal accuracy here — a transparent lexicon model that a stakeholder can question is more useful than a slightly-more-accurate black box. And the theme taxonomy itself is a product decision, not an engineering detail: which buckets you choose shapes what the team pays attention to.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 7: AI PRODUCT COPILOT (SELF-DIRECTED) -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Personal AI Product · Self-Directed Build</div>
+      <div class="case-title">AI Product Copilot — Structured Intake for "Let's Add AI to This"</div>
+      <div class="case-tags">
+        <span class="tag">Decision Frameworks</span>
+        <span class="tag">RICE Scoring</span>
+        <span class="tag">RAG vs. Fine-Tuning</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>1. Problem Statement</h4>
+          <p>Every AI-adjacent PM job I've had generates a steady stream of "can we add AI to this?" requests. Without a repeatable framework, each one turns into a multi-meeting scoping cycle before anyone can say whether it's worth building — or what architecture even fits.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>2. User Persona</h4>
+          <p><strong>Marcus, Product Owner at a regulated enterprise (bank or insurer).</strong> Triages a growing backlog of AI feature ideas from stakeholders and needs a consistent, defensible way to score and route them — not another ad-hoc conversation.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>3. Market Research</h4>
+          <p>Competitors: Productboard, Aha!, generic RICE/ICE calculators, and plain ChatGPT used ad hoc. None of them encode an AI-feature-specific intake framework — model type, data readiness, failure modes, audit trail — the way an experienced AI PM's mental checklist does. That checklist, digitized, is the product.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>4. PRD — Key Requirements</h4>
+          <ul>
+            <li>Structured intake form: business goal, target user, data availability, knowledge volatility, regulatory sensitivity, latency tolerance</li>
+            <li>RICE scoring from reach/impact/confidence/effort inputs</li>
+            <li>Deterministic architecture recommendation (rules-based / RAG / fine-tune) with stated reasoning</li>
+            <li>Auto-generated risk & guardrail checklist scaled to regulatory sensitivity</li>
+            <li>Downloadable one-pager brief; optional LLM "polish" pass on the prose only</li>
+          </ul>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>5. MVP Scope (V1)</h4>
+          <p><strong>In scope:</strong> rule-based decision engine, RICE calculator, templated brief generation, optional bring-your-own-key LLM polish.<br/><strong>Out of scope (V2):</strong> multi-user approval workflows, Jira/Confluence integration, historical calibration against real outcomes.</p>
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>6. Success Metrics (KPIs)</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">&lt;10min</span><span class="m-lbl">time to a scoped brief vs. ~2hrs</span></div>
+            <div class="metric-pill"><span class="m-val">&lt;20%</span><span class="m-lbl">target rework rate by eng/compliance</span></div>
+            <div class="metric-pill"><span class="m-val">↑</span><span class="m-lbl">weekly ideas triaged</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>7. AI Architecture</h4>
+          <p><strong>Prompt:</strong> a structured template combining form inputs + framework rules, used only for the optional prose-polish step. <strong>Model:</strong> a deterministic, auditable rule/decision-tree as the core logic — not an LLM — because a regulated intake tool needs an inspectable answer to "why did it say this," plus an optional GPT-4o-mini-class call for tone only. <strong>Evaluation:</strong> the rule engine was checked against real scoping decisions from the Schwab HITL and Comerica RAG-vs-fine-tune case studies to confirm it reproduces the same call; LLM polish is checked for hallucination via template-constrained, no-new-facts output.</p>
+        </div>
+        <div class="case-decision">
+          <strong>8. Demo — Live Application</strong>
+          <a class="btn btn-primary" href="https://bhuvi-ai-lab.streamlit.app/AI_Product_Copilot" target="_blank" style="margin-top:8px;">▶ Try the live demo</a>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>9. Lessons Learned</h4>
+          <p>Forcing an implicit judgment call (RAG vs. fine-tuning) into an explicit scoring rubric was valuable independent of the tool — it made me articulate criteria I'd been applying by instinct. Deterministic logic beats an LLM whenever "why" has to be auditable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 8: AI PREDICTIVE MAINTENANCE DASHBOARD (SELF-DIRECTED) -->
+  <div class="case-card fade-in">
+    <div class="case-header">
+      <div class="case-company">Personal AI Product · Self-Directed Build</div>
+      <div class="case-title">AI Predictive Maintenance Dashboard — From Sensor Noise to "Check This Machine First"</div>
+      <div class="case-tags">
+        <span class="tag">Anomaly Detection</span>
+        <span class="tag">Time-Series</span>
+        <span class="tag">IIoT</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div>
+        <div class="case-section">
+          <h4>1. Problem Statement</h4>
+          <p>Field teams run reactive maintenance — fix it after it breaks — even when sensor data exists that could flag the problem early. The data isn't the gap; turning it into a plain "check this asset first" signal for a non-technical operator is.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>2. User Persona</h4>
+          <p><strong>Dana, Field Operations Manager</strong> overseeing a fleet of industrial equipment. Wants one risk indicator per asset to plan this week's inspections — not a raw telemetry firehose she has to interpret herself.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>3. Market Research</h4>
+          <p>Competitors: IBM Maximo, GE Digital/Predix, Uptake, Augury, SparkCognition. These are heavy, expensive IIoT platforms that assume a dedicated integration team. The gap is a lightweight, explainable dashboard a mid-size ops team can stand up without one — the same "one number that matters" philosophy from the Xcel Energy case study.</p>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>4. PRD — Key Requirements</h4>
+          <ul>
+            <li>Ingest per-asset time-series sensor data (temperature, vibration, runtime hours) via CSV or a built-in simulator</li>
+            <li>Compute an anomaly score vs. historical baseline per asset</li>
+            <li>Rank the fleet by risk tier (Low/Medium/High) so the highest-priority asset is obvious</li>
+            <li>Drill-down chart per asset showing sensor trend with anomaly markers</li>
+            <li>Exportable fleet risk report</li>
+          </ul>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>5. MVP Scope (V1)</h4>
+          <p><strong>In scope:</strong> synthetic multi-asset data generator + CSV upload, Isolation Forest anomaly scoring, rule-based risk tiering, fleet ranking table, per-asset drill-down chart.<br/><strong>Out of scope (V2):</strong> live IoT/SCADA streaming integration, LSTM-based failure forecasting, automated work-order creation.</p>
+        </div>
+      </div>
+      <div>
+        <div class="case-section">
+          <h4>6. Success Metrics (KPIs)</h4>
+          <div class="metrics-row">
+            <div class="metric-pill"><span class="m-val">15-20%</span><span class="m-lbl">target unplanned downtime ↓</span></div>
+            <div class="metric-pill"><span class="m-val">&lt;15%</span><span class="m-lbl">target false-positive rate</span></div>
+            <div class="metric-pill"><span class="m-val">↓</span><span class="m-lbl">flag-to-inspection lead time</span></div>
+          </div>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>7. AI Architecture</h4>
+          <p><strong>Prompt:</strong> none — this is a numerical time-series tool, not an LLM product; not every AI product needs one. <strong>Model:</strong> Isolation Forest over rolling sensor features, chosen over an LSTM forecaster for V1 because it needs far less historical data and is easier to explain to a field ops manager — mirroring the "earn trust with something explainable before justifying a deep model" sequencing from the Xcel engagement. <strong>Evaluation:</strong> precision/recall of flags against injected synthetic failure events, with a plan to backtest against real historical failure logs once available.</p>
+        </div>
+        <div class="case-decision">
+          <strong>8. Demo — Live Application</strong>
+          <a class="btn btn-primary" href="https://bhuvi-ai-lab.streamlit.app/AI_Predictive_Maintenance_Dashboard" target="_blank" style="margin-top:8px;">▶ Try the live demo</a>
+        </div>
+        <div class="case-section" style="margin-top:24px;">
+          <h4>9. Lessons Learned</h4>
+          <p>The hardest part of predictive maintenance products is data readiness, not modeling — which matches what I documented in the field at Cintas. Starting with an explainable statistical baseline earns the right to later argue for a more expensive model.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- AI LAB -->
 <section id="ai-lab">
   <div class="section-label">AI Product Lab</div>
-  <h2>Three working AI tools I built to show, not just tell.</h2>
-  <div class="section-intro">The three artifacts an AI PM produces most: requirements, backlog, and grounded answers over internal knowledge. Live, working apps — not mockups.</div>
+  <h2>Six working AI tools I built to show, not just tell.</h2>
+  <div class="section-intro">Requirements, backlog, grounded answers over internal knowledge, review triage, AI-feature decision support, and predictive maintenance monitoring. Live, working apps — not mockups.</div>
   <div class="lab-grid">
     <div class="lab-card fade-in">
       <div class="lab-icon">📝</div>
@@ -797,6 +998,24 @@
       <div class="lab-title">RAG Knowledge Assistant</div>
       <div class="lab-desc">Upload documents and ask questions. Answers are grounded strictly in the docs, with citations back to the source chunk (TF-IDF retrieval).</div>
       <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/RAG_Knowledge_Assistant" target="_blank">Open RAG Assistant →</a>
+    </div>
+    <div class="lab-card fade-in">
+      <div class="lab-icon">📱</div>
+      <div class="lab-title">Mobile App Review Analyzer</div>
+      <div class="lab-desc">Turns a firehose of app-store reviews into a sentiment trend by version, auto-tagged complaint themes, and the reviews actually worth reading.</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/Mobile_App_Review_Analyzer" target="_blank">Open Review Analyzer →</a>
+    </div>
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🧭</div>
+      <div class="lab-title">AI Product Copilot</div>
+      <div class="lab-desc">Scores an AI feature idea with RICE, recommends an architecture (rules/RAG/fine-tune) with stated reasoning, and drafts a one-pager brief.</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/AI_Product_Copilot" target="_blank">Open Product Copilot →</a>
+    </div>
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🛠️</div>
+      <div class="lab-title">AI Predictive Maintenance Dashboard</div>
+      <div class="lab-desc">Ranks a fleet of equipment by risk score from sensor telemetry, so a field ops manager knows which asset to check first.</div>
+      <a class="lab-link" href="https://bhuvi-ai-lab.streamlit.app/AI_Predictive_Maintenance_Dashboard" target="_blank">Open Maintenance Dashboard →</a>
     </div>
   </div>
 </section>
